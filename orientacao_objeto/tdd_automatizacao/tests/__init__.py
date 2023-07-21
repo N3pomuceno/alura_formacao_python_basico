@@ -1,0 +1,2 @@
+# O arquivo __init__.py é necessário porque o diretório tests é um módulo. Para considerarmos um módulo no Python, é preciso ter um diretório e, dentro dele, um arquivo dunder init. 
+# É assim que o Pytest reconhece que esta é a pasta de testes. O arquivo __init__.py pode permanecer vazio.

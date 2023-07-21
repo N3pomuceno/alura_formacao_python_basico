@@ -1,0 +1,70 @@
+        Primeira aula:
+Comandos para instalar o Virtual enviroment:
+sudo apt install python3.8-venv
+
+Comandos para criar o virtual enviroment:
+python3 -m venv venv              # O primeiro venv é para chamar o virtual enviroment, o segundo é para definir o nome.
+
+Comando para ativar o virtual enviroment:
+source venv/bin/activate
+
+Para desativar basta escrever no terminal do vscode:
+deactivate
+
+----------------------------------------------------------------------------
+        Segunda aula:
+Comando para verificar todos os pacotes instalados no venv:
+pip freeze 
+Obs: É uma boa prática fazer um documento txt separado para deixar explícito todos os pacotes instalados no venv, fazendo isso a próxima
+pessoa que iria usar teria o conhecimento sobre os pacotes. Para separar os pacotes numa linha de código, basta escrever:
+pip freeze > requirements.txt
+
+Comando para instalar o pytest na versão 7.1.3:
+pip install pytest==7.1.3
+
+Comando para chamar o pytest para fazer a execução:
+pytest 
+
+Para ficar mais informativo:
+pytest -v
+
+----------------------------------------------------------------------------
+        Terceira aula:
+
+----------------------------------------------------------------------------
+        Quarta aula:
+
+Comando para selecionar somente teste específicos para serem feitos:
+pytest -k <termo_do_teste>
+(Esse comando deseleciona testes que não tenham o termo escrito)
+
+Mesmo comando mais verboso:
+pytest -v -k <termo_do_teste>
+
+Comando para executar testes que tenham a mesma tag(decorator):
+pytest -v -m <nome_do_decorator>
+(Caso seja um marker customizado, será levantado um warning) - para tirar o warning crie um arquivo pytest.ini e adicione esse novo marker como um dos markers do pytest.
+
+Comando para ver markers da biblioteca:
+pytest --markers
+(para maior informação buscar documentação do pytest)
+
+----------------------------------------------------------------------------
+        Quinta aula:
+Instalando extensão do pytest relacionado com a cobertura do código em relação aos testes:
+pip install pytest-cov==3.0.0   - Lembrar de atualizar os requirements!
+
+Para checar a cobertura dos testes, basta chegar no terminal e colocar:
+pytest --cov   (roda em todos os arquivos)
+
+Para definir os arquivos que queremos, colocamos o diretório do arquivo:
+pytest --cov=codigo tests/
+
+Relatório da extensão de termos faltantes:
+pytest --cov=codigo tests/ --cov-report term-missing
+
+Relatório a partir de html:
+pytest --cov=codigo tests/ --cov-report html  - Quando cria uma pasta de htmlcov, que dentro tem um index.html que deixa o relatório muito mais versátil. Utilizar '[' e']' como atalho.
+
+Relatório exportado em xml:
+pytest --junitxml report.xml
